@@ -37,4 +37,11 @@ echo "Project created. Cloning in dgrebb starter pack."
 cd $project_name
 git clone https://github.com/dgrebb/starter.git .
 
+read -p "Starter cloned. Ready to run dependency installations..."
+
+npm install
+
+echo
+echo "Project ready."
+
 exit 0
