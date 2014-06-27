@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Install commonly used website development utilities
+# and run through arguments to set up a local apache
+# instance. Also create common directories and setup files.
+
+echo "Let's get some shit straight first..."
+version >/dev/null 2>&1 && version bash
+
+echo
+
+# Set up some defaults
+default_name="New Project"
+
+read -p "What do you want to call the project? (default is \"$default_name\"): " -e t1
+if [ -n "$t1" ]
+then
+  project_name="$t1"
+else
+  project_name="$default_name"
+fi
+
+echo
+echo "-------------------------"
+echo "OK. Review project setup:"
+echo
+echo " Project named \"$project_name\""
+echo
+echo "-------------------------"
+
+read -p "We're ready to go. Press return to make shit happen."
+
+mkdir -p $project_name
+
+echo "Project created. Cloning in dgrebb starter pack."
+
+cd $project_name
+git clone https://github.com/dgrebb/starter.git .
+
+exit 0
